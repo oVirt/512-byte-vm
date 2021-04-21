@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install build tools
-        run: sudo apt install -y nasm qemu-utils qemu gocr
+        run: sudo apt install -y nasm qemu-utils qemu gocr mkisofs dosfstools
       - name: Build
         run: ./build.sh
       - name: Run test
