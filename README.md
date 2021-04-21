@@ -40,3 +40,11 @@ qemu-img convert -f raw -O vmdk 512-byte-vm.raw 512-byte-vm.vmdk
 ```
 
 Alternatively, you could also use the [build script](build.sh).
+
+## Where can I learn more?
+
+We didn't come up with this on our own. Here are a few resources that should get you started:
+
+- [The OSDev Wiki](https://wiki.osdev.org/Main_Page) contains a wealth of material in case you want to write your own OS. The [Roll Your Own Bootloader](https://wiki.osdev.org/Rolling_Your_Own_Bootloader) section is especially useful if you want to do something similar.
+- [The Interrupt Jump Table](http://www.ctyme.com/intr/int.htm) contains an index of several (older) interrupts that can be used to interact with hardware.
+- [This page](http://ref.x86asm.net/coder32.html) contains the x86 CPU opcodes that the ASM instructions compile to.
