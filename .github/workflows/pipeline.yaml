@@ -57,3 +57,5 @@ jobs:
           name: images
       - name: Create release
         run: gh release create -d ${{ github.ref }} *
+        env:
+          GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
