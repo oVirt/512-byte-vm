@@ -9,7 +9,8 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install build tools
         run: sudo apt install -y nasm qemu-utils gocr mkisofs dosfstools
       - name: Build
@@ -30,6 +31,8 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Install build tools
         run: sudo apt install -y gocr qemu-utils qemu qemu-kvm gocr
       - name: Download artifacts
