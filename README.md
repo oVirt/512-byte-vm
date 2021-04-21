@@ -12,7 +12,7 @@ Because when you test integration with virtualization systems such as [oVirt](ht
 
 ## Can I use it?
 
-Sure! Go grab it from the [releases section](https://github.com/janoszen/512-byte-vm/releases) for the latest release!
+Sure! Go grab it from the [releases section](https://github.com/janoszen/512-byte-vm/releases)! We have raw, QCOW2, VDI, VMDK, VHD and ISO images.
 
 ## How?
 
