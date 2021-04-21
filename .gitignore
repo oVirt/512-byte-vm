@@ -1,0 +1,8 @@
+.idea
+*.iml
+vm
+vm.vmdk
+vm.qcow2
+*.vbox
+*.log
+*.vbox-*
