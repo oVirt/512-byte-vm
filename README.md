@@ -1,10 +1,18 @@
 # The 512-byte VM (Cloud native!)
 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/janoszen/512-byte-vm?style=for-the-badge)](https://github.com/janoszen/512-byte-vm/releases)
+[![GitHub license](https://img.shields.io/github/license/janoszen/512-byte-vm?style=for-the-badge)](https://github.com/janoszen/512-byte-vm/blob/main/LICENSE.md)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/janoszen/512-byte-vm/main?style=for-the-badge)
+
 This is a virtual machine that fits in 512 bytes (the boot sector).
 
 ## Why?!
 
 Because when you test integration with virtualization systems such as [oVirt](https://www.ovirt.org/) (hint, hint), you often need a VM image to upload. If you have to run dozens or hundreds of test cases you don't want to be uploading GB-sized images.
+
+## Can I use it?
+
+Sure! Go grab it from the [releases section](https://github.com/janoszen/512-byte-vm/releases) for the latest release!
 
 ## How?
 
