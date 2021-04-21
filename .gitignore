@@ -3,6 +3,7 @@
 vm
 vm.vmdk
 vm.qcow2
+vm.iso
 *.vbox
 *.log
 *.vbox-*

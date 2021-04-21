@@ -6,7 +6,7 @@ This is a virtual machine that fits in 512 bytes (the boot sector).
 
 Because when you test integration with virtualization systems such as [oVirt](https://www.ovirt.org/) (hint, hint), you often need a VM image to upload. If you have to run dozens or hundreds of test cases you don't want to be uploading GB-sized images.
 
-## How?  
+## How?
 
 Very much simplified, the first thing that loads when a computer, or a VM starts is the BIOS (or UEFI in newer systems). The BIOS provides some very basic functions, such as being able to print to the screen conveniently.
 
@@ -22,6 +22,7 @@ Beautiful, raw data, right on the disk. You can run it directly using qemu:
 
 ```
 qemu-system-x86_64-spice -drive file=vm,format=raw
+qemu-system-x86_64-spice -boot d -cdrom vm.iso
 ```
 
 Alternatively, you can convert it to various formats using `qemu-img`:
