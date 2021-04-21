@@ -26,6 +26,7 @@ jobs:
             *.vhd
             *.vmdk
   test:
+    needs: build
     name: Test
     runs-on: ubuntu-latest
     steps:
