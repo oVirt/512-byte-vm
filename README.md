@@ -12,22 +12,23 @@ Very much simplified, the first thing that loads when a computer, or a VM starts
 
 At any rate, the BIOS loads the boot loader from the MBR on the disk (first 512 bytes). UEFI is much smarter, but let's not deal with that right now. The MBR is a set of purely machine instructions that will be run pretty much as it is. This is different from how operating systems load binaries such as EXE files or ELF binaries, since those contain a header and a bunch of other information. The only requirement for the boot sector code is that it must end in `0xAA55` and the BIOS will happily execute it.
 
-So, we compile [vm.asm](vm.asm) using the [NASM assembler](https://www.nasm.us/) and that's it, that's our disk image:
+So, we compile [vm.asm](512-byte-vm.asm) using the [NASM assembler](https://www.nasm.us/) and that's it, that's our disk image:
 
 ```
-nasm vm.asm
+nasm -o 512-byte-vm.raw 512-byte-vm.asm
 ```
 
 Beautiful, raw data, right on the disk. You can run it directly using qemu:
 
 ```
-qemu-system-x86_64-spice -drive file=vm,format=raw
-qemu-system-x86_64-spice -boot d -cdrom vm.iso
+qemu-system-x86_64 -drive file=512-byte-vm.raw,format=raw
 ```
 
 Alternatively, you can convert it to various formats using `qemu-img`:
 
 ```
-qemu-img convert -c -f raw -O qcow2 image image.qcow2
-qemu-img convert -c -f raw -O vmdk image image.vmdk
+qemu-img convert -c -f raw -O qcow2 512-byte-vm.raw 512-byte-vm.qcow2
+qemu-img convert -f raw -O vmdk 512-byte-vm.raw 512-byte-vm.vmdk
 ```
+
+Alternatively, you could also use the [build script](build.sh).

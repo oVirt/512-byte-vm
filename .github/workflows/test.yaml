@@ -1,0 +1,17 @@
+name: Test
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install build tools
+        run: sudo apt install -y nasm qemu-utils qemu gocr
+      - name: Build
+        run: ./build.sh
+      - name: Run test
+        run: ./test.sh

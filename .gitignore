@@ -1,9 +1,11 @@
 .idea
 *.iml
-vm
-vm.vmdk
-vm.qcow2
-vm.iso
+*.raw
+*.vmdk
+*.vdi
+*.vhd
+*.qcow2
+*.iso
 *.vbox
 *.log
 *.vbox-*
