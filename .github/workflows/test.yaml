@@ -1,4 +1,4 @@
-name: Test
+name: Build & Test
 on:
   push:
     branches: [ main ]
@@ -6,12 +6,34 @@ on:
     branches: [ main ]
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install build tools
-        run: sudo apt install -y nasm qemu-utils qemu gocr mkisofs dosfstools
+        run: sudo apt install -y nasm qemu-utils gocr mkisofs dosfstools
       - name: Build
         run: ./build.sh
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: images
+          path: |
+            *.iso
+            *.qcow2
+            *.raw
+            *.vdi
+            *.vhd
+            *.vmdk
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install build tools
+        run: sudo apt install -y gocr qemu-utils qemu qemu-kvm gocr
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: images
       - name: Run test
         run: ./test.sh
