@@ -31,8 +31,7 @@ echo "Starting VM..."
     -monitor telnet::2000,server,nowait >/tmp/qemu.log
 ) &
 
-sleep 2
-echo "Performing screen dump and shutting down VM..."
+sleep 10
 echo 'screendump /tmp/screendump
 quit' | nc localhost 2000 >/dev/null
 sleep 1

@@ -58,6 +58,6 @@ jobs:
         with:
           name: images
       - name: Create release
-        run: gh release create -d ${{ github.ref }} *
+        run: gh release create -d ${{ github.ref }} *.iso *.qcow2 *.raw *.vdi *.vhd *.vmdk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
