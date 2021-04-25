@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install build tools
-        run: sudo apt install -y nasm qemu-utils gocr mkisofs dosfstools
+        run: sudo apt update && sudo apt install -y nasm qemu-utils gocr mkisofs dosfstools
       - name: Build
         run: ./build.sh
       - name: Upload artifacts
@@ -38,7 +38,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install build tools
-        run: sudo apt install -y gocr qemu-utils qemu qemu-kvm gocr
+        run: sudo apt update && sudo apt install -y gocr qemu-utils qemu qemu-kvm gocr
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
