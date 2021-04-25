@@ -50,21 +50,22 @@ characters:					; the real characters: "█k╚r╗s║╔═╝ ao--"
 
 encoded_text:
 	DB 0d1h,0e1h
-	;  L             E                     T                        S                     C                 O                     D                     E
-	DB 02h,41h,0a5h, 07h,41h,              08h,41h,                 07h,41h,0a5h,         06h,41h,0a1h,     06h,41h,0a1h,         06h,41h,0a1h,         07h,41h,0d1h,0e1h
-	DB 02h,61h,0a5h, 02h,71h,84h,91h,      21h,82h,02h,71h,82h,91h, 02h,71h,84h,91h,0a4h, 02h,71h,84h,91h,  02h,71h,83h,02h,41h,  02h,71h,82h,02h,41h,  02h,71h,84h,91h,0d1h,0e1h
-	DB 02h,61h,0a5h, 05h,41h,0a5h,         02h,61h,0a3h,            07h,41h,0a4h,         02h,61h,0a5h,     02h,61h,0a3h,02h,61h, 02h,61h,0a2h,02h,61h, 05h,41h,0d1h,0e1h
-	DB 02h,61h,0a5h, 02h,71h,82h,91h,0a5h, 02h,61h,0a3h,            21h,84h,02h,61h,0a4h, 02h,61h,0a5h,     02h,61h,0a3h,02h,61h, 02h,61h,0a2h,02h,61h, 02h,71h,82h,91h,0d1h,0e1h
-	DB 07h,41h,      07h,41h,0a3h,         02h,61h,0a3h,            07h,61h,0a4h,         21h,06h,41h,      21h,06h,71h,91h,      06h,71h,91h,          07h,41h,0d1h,0e1h
-	DB 21h,86h,91h,  21h,86h,91h,0a3h,     21h,81h,91h,0a3h,        21h,86h,91h,0a5h,     21h,85h,91h,0a1h, 21h,85h,91h,0a1h,     21h,85h,91h,0a1h,     21h,86h,91h,0d1h,0e1h
-	DB 0aeh,0aeh,0aeh,0aeh,0a6h,0fh,6ah,0b1h,0fh,6eh,0c1h,51h,0fh,7ah,0fh,65h,0fh,6eh,0d1h,0e1h
-	DB 0aeh,0aeh,0aeh,0aeh,0a5h,51h,0b1h,31h,11h,0fh,69h,31h,0c1h,11h,0b1h,0d1h,0e1h
-	DB 0d1h,0e1h,0fh,07h
+	;  o                      V                                       i            r                                 t
+	DB 0a9h,                  02h,41h,0a5h,02h,41h,                   02h,41h,     0aah,                             02h,41h,0d1h,0e1h
+	DB 0a9h,                  02h,61h,0a5h,02h,61h,                   21h,81h,91h, 0a8h,                             07h,41h,0d1h,0e1h
+	DB 0a1h,06h,41h,0a1h,     02h,61h,0a5h,02h,61h,                   02h,41h,     02h,41h,04h,41h,                  0a2h,02h,71h,82h,91h,0d1h,0e1h
+	DB 02h,71h,83h,02h,41h,   21h,02h,41h,0a3h,02h,71h,91h,           02h,61h,     04h,71h,81h,02h,41h,              0a1h,02h,61h,0d1h,0e1h
+	DB 02h,61h,0a3h,02h,61h,  0a1h,21h,02h,41h,0a1h,02h,71h,91h,0a1h, 02h,61h,     02h,71h,81h,91h,0a1h,21h,81h,91h, 0a1h,02h,61h,0a1h,02h,41h,0d1h,0e1h
+	DB 21h,06h,71h,91h,       0a2h,21h,04h,71h,91h,0a2h,              02h,61h,     02h,61h,0a7h,                     21h,04h,71h,91h,0d1h,0e1h
+	DB 0a1h,21h,85h,91h,0a4h, 21h,83h,91h,0a3h,                       21h,81h,91h, 21h,81h,91h,0a8h,                 21h,83h,91h,0d1h,0e1h
+	
+	DB 0aeh,0aeh,0a4h,0fh,6ah,0b1h,0fh,6eh,0c1h,51h,0fh,7ah,0fh,65h,0fh,6eh,0d1h,0e1h
+	DB 0aeh,0aeh,0a3h,51h,0b1h,31h,11h,0fh,69h,31h,0c1h,11h,0b1h,0d1h,0e1h
+	DB 0d1h,0e1h,0d1h,0e1h,0fh,07h
 
 	DB 0fh,48h,0fh,65h,0fh,6ch,0fh,6ch,0c1h,0a1h,0fh,57h,0c1h,31h,0fh,6ch,0fh,64h,0a1h, 0fh,69h,51h,0a1h, 0c1h,11h,0fh,2eh,0fh,2eh,0fh,2eh,0d1h,0e1h
 	
 	DB 0					; end of encoded text
-	DB 90h,90h,90h,90h,90h,90h,90h
 
 TIMES 510 - ($ - $$) DB 0 ; Fill up 510 bytes
 DW 0xAA55 ; Write magic bytes for boot loader

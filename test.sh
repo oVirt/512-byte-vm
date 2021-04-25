@@ -36,8 +36,7 @@ echo 'screendump /tmp/screendump
 quit' | nc localhost 2000 >/dev/null
 sleep 1
 echo "Performing OCR and evaluating results..."
-# We skip the H here because the OCR might interpret the blinking cursor as an underscore instead of a H
-if [ $(gocr -m 4 /tmp/screendump | grep 'ello World' | wc -l) -eq 1 ]; then
+if [ $(gocr -m 4 /tmp/screendump | grep 'Hello World' | wc -l) -eq 1 ]; then
   echo -e "\033[0;32mTest successful\033[0m"
   exit 0
 fi
