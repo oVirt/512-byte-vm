@@ -51,4 +51,4 @@ We didn't come up with this on our own. Here are a few resources that should get
 
 ## Can I contribute?
 
-Sure! Just send us a PR. We have a set of [rudimentary tests](test.sh) that should check if the basic functions are working.
+Sure! [Here's the detailed guide on how to do that!](CONTRIBUTING.md)
