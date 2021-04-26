@@ -38,13 +38,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install build tools
-        run: sudo apt update && sudo apt install -y gocr qemu-utils qemu qemu-kvm gocr
+        run: sudo apt update && sudo apt install -y gocr qemu-utils qemu qemu-kvm gocr imagemagick
       - name: Download artifacts
         uses: actions/download-artifact@v2
         with:
           name: images
       - name: Run test
         run: ./test.sh
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: screendump
+          path: screendump.png
   release:
     needs: test
     name: Release

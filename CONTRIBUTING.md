@@ -4,7 +4,7 @@ You want to contribute? Awesome! Let's go through what you need:
 
 - [The Netwide Assembler](https://www.nasm.us/).
 - A virtualization environment. We strongly recommend QEMU as it makes testing the easiest.
-- A text editor.
+- A text editor. *(Please use Linux line endings and spaces for formatting.)*
 
 You can edit the [512-byte-vm.asm](512-byte-vm.asm) file and then compile it. You can either run `./build.sh`, or do the steps manually. First of all, you'll need to assemble your code:
 
@@ -28,7 +28,7 @@ qemu-img convert -f raw -O vmdk 512-byte-vm.raw 512-byte-vm.vmdk
 
 This disk image can then be loaded in your virtualization environment.
 
-You can run the automated tests by running `./test.sh` if you are in a Linux environment. (It works on WSL too!)
+You can run the automated tests by running `./test.sh` if you are in a Linux environment. (It works on WSL too!) This test will run the built raw image in a QEMU virtual machine, test the output, and capture the screen into the `screendump.png` file.
 
 ## Things to pay attention to
 

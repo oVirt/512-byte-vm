@@ -22,6 +22,11 @@ if [ "$(which nc | wc -l)" -ne 1 ]; then
   exit 1
 fi
 
+if [ "$(which convert | wc -l)" -ne 1 ]; then
+  echo -e "\033[0;31mPlease install imagemagick to run this test.\033[0m" >&2
+  exit 1
+fi
+
 echo "Starting VM..."
 (
   qemu-system-x86_64 \
@@ -32,14 +37,15 @@ echo "Starting VM..."
 ) &
 
 sleep 10
-echo 'screendump /tmp/screendump
+echo 'screendump /tmp/screendump.ppm
 quit' | nc localhost 2000 >/dev/null
 sleep 1
+convert /tmp/screendump.ppm screendump.png
 echo "Performing OCR and evaluating results..."
-if [ $(gocr -m 4 /tmp/screendump | grep 'Hello World' | wc -l) -eq 1 ]; then
+if [ $(gocr -m 4 /tmp/screendump.ppm | grep 'Hello World' | wc -l) -eq 1 ]; then
   echo -e "\033[0;32mTest successful\033[0m"
   exit 0
 fi
 
-echo "\033[0;31mNo Hello World found in output!\033[0m"
+echo -e "\033[0;31mNo Hello World found in output!\033[0m"
 exit 1

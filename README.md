@@ -2,7 +2,7 @@
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/ovirt/512-byte-vm?style=for-the-badge)](https://github.com/ovirt/512-byte-vm/releases)
 [![GitHub license](https://img.shields.io/github/license/ovirt/512-byte-vm?style=for-the-badge)](https://github.com/ovirt/512-byte-vm/blob/main/LICENSE.md)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/ovirt/512-byte-vm/main?style=for-the-badge)
+[![GitHub branch checks state](https://img.shields.io/github/workflow/status/ovirt/512-byte-vm/Build,%20Test,%20Release?style=for-the-badge)](https://github.com/oVirt/512-byte-vm/actions)
 
 This is a virtual machine that fits in 512 bytes (the boot sector).
 
