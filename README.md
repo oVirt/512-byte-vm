@@ -1,8 +1,8 @@
 # The 512-byte VM (Cloud native!)
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/janoszen/512-byte-vm?style=for-the-badge)](https://github.com/janoszen/512-byte-vm/releases)
-[![GitHub license](https://img.shields.io/github/license/janoszen/512-byte-vm?style=for-the-badge)](https://github.com/janoszen/512-byte-vm/blob/main/LICENSE.md)
-![GitHub branch checks state](https://img.shields.io/github/checks-status/janoszen/512-byte-vm/main?style=for-the-badge)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/ovirt/512-byte-vm?style=for-the-badge)](https://github.com/ovirt/512-byte-vm/releases)
+[![GitHub license](https://img.shields.io/github/license/ovirt/512-byte-vm?style=for-the-badge)](https://github.com/ovirt/512-byte-vm/blob/main/LICENSE.md)
+![GitHub branch checks state](https://img.shields.io/github/checks-status/ovirt/512-byte-vm/main?style=for-the-badge)
 
 This is a virtual machine that fits in 512 bytes (the boot sector).
 
@@ -12,7 +12,7 @@ Because when you test integration with virtualization systems such as [oVirt](ht
 
 ## Can I use it?
 
-Sure! Go grab it from the [releases section](https://github.com/janoszen/512-byte-vm/releases)! We have raw, QCOW2, VDI, VMDK, VHD and ISO images.
+Sure! Go grab it from the [releases section](https://github.com/ovirt/512-byte-vm/releases)! We have raw, QCOW2, VDI, VMDK, VHD and ISO images.
 
 ## How?
 
@@ -51,4 +51,4 @@ We didn't come up with this on our own. Here are a few resources that should get
 
 ## Can I contribute?
 
-Sure! Just send us a PR. We have a set of [rudimentary tests](test.sh) that should check if the basic functions are working.
+Sure! [Here's the detailed guide on how to do that!](CONTRIBUTING.md)
