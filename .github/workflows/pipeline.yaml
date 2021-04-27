@@ -38,7 +38,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install build tools
+      - name: Install testing tools
         run: sudo apt update && sudo apt install -y gocr qemu-utils qemu qemu-kvm gocr imagemagick
       - name: Download artifacts
         uses: actions/download-artifact@v2
@@ -48,6 +48,7 @@ jobs:
         run: ./test.sh
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: screendumps
           path: '*.png'
