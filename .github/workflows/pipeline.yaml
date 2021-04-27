@@ -49,8 +49,8 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: screendump
-          path: screendump.png
+          name: screendumps
+          path: '*.png'
   release:
     needs: test
     name: Release
