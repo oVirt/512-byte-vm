@@ -23,6 +23,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: images
+          if-no-files-found: error
           path: |
             *.iso
             *.qcow2
