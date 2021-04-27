@@ -94,6 +94,7 @@ encoded_text:
 
     DB 33,'janoszen',10,13              ; 33 spaces to align right, and a name, and cr, lf
     DB 32,'sarkiroka',10,13             ; same structure as before
+    DB 33,'bencurio',10,13              ; same structure as before
 
 ; end of contributors section
 
