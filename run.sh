@@ -3,7 +3,7 @@
 set -eao pipefail
 
 if [ ! -f 512-byte-vm.raw ]; then
-  echo "Please run build.sh first" >&2
+  echo "Please run build.sh first." >&2
   exit 1
 fi
 

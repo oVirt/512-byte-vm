@@ -27,8 +27,13 @@ if [ "$(which convert | wc -l)" -ne 1 ]; then
   exit 1
 fi
 
-for image in raw qcow2 vdi vmdk; do
-  echo "Testing ${image} image..."
+source ./functions.sh
+
+function test_image {
+  image=$1
+
+  log "⚙️ Starting VM with ${image} image..."
+
   (
     qemu-system-x86_64 \
       -nographic \
@@ -39,16 +44,35 @@ for image in raw qcow2 vdi vmdk; do
 
   sleep 10
   echo 'screendump /tmp/screendump.ppm
-  quit' | nc localhost 2000 >/dev/null
+quit' | nc localhost 2000 >/dev/null
   sleep 1
+  echo -e "\033[2m"
+  cat /tmp/qemu.log
+  echo -e "\033[0m"
   convert /tmp/screendump.ppm ${image}.png
-  echo "Performing OCR and evaluating results..."
+
+  log "⚙️ Performing OCR and evaluating results..."
   if [ $(gocr -m 4 /tmp/screendump.ppm 2>/dev/null | grep 'Hello World' | wc -l) -ne 1 ]; then
-    echo -e "\033[0;31mNo Hello World found in output from ${image} image!\033[0m"
-    exit 1
+    error "❌ Test failed: the virtual machine did not print \"Hello World\" to the output when run."
+    return 1
   fi
-  echo -e "\033[0;32mTest for ${image} image successful.\033[0m"
+  success "✅ Test successful."
+}
+
+SUCCESS=1
+for image in raw qcow2 vdi vmdk; do
+  set +e
+  run_with_check "Testing ${image} image..." test_image $image
+  if [ "$?" -ne 0 ]; then
+    SUCCESS=0
+  fi
+  set -e
 done
 
-echo -e "\033[0;32mAll tests successful.\033[0m"
-exit 0
+if [ "${SUCCESS}" -eq "1" ]; then
+  success "✅ All tests successful."
+  exit 0
+else
+  error "❌ One or more tests failed."
+  exit 1
+fi
