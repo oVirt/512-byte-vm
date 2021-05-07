@@ -52,6 +52,14 @@ end_of_print:
     MOV     [BP],AX                     ; get the saved print mode
     JZ      print_next_character        ; at the end of the compressed loop, go back and print normal text
 
+    CALL    serial_port_count
+    CMP     AH, 1
+    JL      no_serial_ports
+    CALL    serial_port_init
+    MOV     BX, serial_console_message
+    CALL    serial_send_str
+
+no_serial_ports:
     XOR     AH,AH                       ; wait a keyboard press
     INT     16h                         ; call BIOS service
 
@@ -95,6 +103,7 @@ encoded_text:
     DB 33,'janoszen',10,13              ; 33 spaces to align right, and a name, and cr, lf
     DB 32,'sarkiroka',10,13             ; same structure as before
     DB 33,'bencurio',10,13              ; same structure as before
+    DB 35,'lveyde',10,13                ; same structure as before
 
 ; end of contributors section
 
@@ -103,6 +112,10 @@ encoded_text:
     DB 1,'Hello World is ok...',10,13   ; the indispensable hello world text
     DB 1,0                              ; end of normal texts
 
+serial_console_message:
+    DB 'Hello World!', 0
+
+%include "serial.asm"
 
 TIMES 510 - ($ - $$) DB 0   ; Fill up 510 bytes
 DW 0xAA55                   ; Write magic bytes for boot loader
