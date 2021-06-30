@@ -52,12 +52,12 @@ end_of_print:
     MOV     [BP],AX                     ; get the saved print mode
     JZ      print_next_character        ; at the end of the compressed loop, go back and print normal text
 
-    CALL    serial_port_count
-    CMP     AH, 1
-    JL      no_serial_ports
-    CALL    serial_port_init
-    MOV     BX, serial_console_message
-    CALL    serial_send_str
+    CALL    serial_port_count           ; get the number of the serial ports
+    CMP     AH, 1                       ; check to see if have at least one serial port
+    JL      no_serial_ports             ; if we don't have any serial ports, then simply jump over
+    CALL    serial_port_init            ; initialize the first serial port to 9600,8,n,1
+    MOV     BX, serial_console_message  ; select the message to be sent over the serial port
+    CALL    serial_send_str             ; send the message to the serial port
 
 no_serial_ports:
     XOR     AH,AH                       ; wait a keyboard press
