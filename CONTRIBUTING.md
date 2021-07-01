@@ -40,4 +40,4 @@ Finally, please keep in mind that this is meant to run in a virtualized environm
 
 ## Submitting your contribution
 
-We want this project to be available to everyone, so we chose the [Unlicense](LICENSE.md) for this project. This means anyone can do whatever they want with the code. If you are ok with this you can submit a pull request [on GitHub](https://github.com/oVirt/512-byte-vm). 
+We want this project to be available to everyone, so we chose the [GPLv3 license](LICENSE.md) for this project. If you are ok with this you can submit a pull request [on GitHub](https://github.com/oVirt/512-byte-vm). 
