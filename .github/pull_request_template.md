@@ -2,7 +2,7 @@
 
 
 
-## Your code will be published under the [Unlicense](LICENSE.md) making it free to use for anyone. Are you ok with that?
+## Your code will be published under the [GPLv3](LICENSE.md). Are you ok with that?
 
 - [ ] Yes
 - [ ] No
