@@ -100,7 +100,7 @@ encoded_text:
 
 ; contributors section
 
-    DB 33,'janoszen',10,13              ; 33 spaces to align right, and a name, and cr, lf
+    DB 31,'janoscodes',10,13            ; 33 spaces to align right, and a name, and cr, lf
     DB 32,'sarkiroka',10,13             ; same structure as before
     DB 33,'bencurio',10,13              ; same structure as before
     DB 35,'lveyde',10,13                ; same structure as before
