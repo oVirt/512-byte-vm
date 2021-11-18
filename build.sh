@@ -12,11 +12,6 @@ if [ "$(which qemu-img | wc -l)" -ne 1 ]; then
   exit 1
 fi
 
-if [ "$(which qemu-img | wc -l)" -ne 1 ]; then
-  echo -e  "\033[0;31mPlease install qemu-img to build this VM.\033[0m" >&2
-  exit 1
-fi
-
 if [ "$(which mkisofs | wc -l)" -ne 1 ]; then
   echo -e  "\033[0;31mPlease install mkisofs to build this VM.\033[0m" >&2
   exit 1
