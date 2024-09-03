@@ -41,7 +41,7 @@ jobs:
       - name: Install testing tools
         run: sudo apt update && sudo apt install -y gocr qemu-utils qemu qemu-kvm gocr imagemagick
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: images
       - name: Run test
@@ -61,7 +61,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.7
         with:
           name: images
       - name: Create release
